@@ -32,9 +32,10 @@
             this.tbx_Login = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btn_Criar_Usuario = new System.Windows.Forms.Button();
             this.tbx_Senha = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.btn_Criar_Usuario = new System.Windows.Forms.Button();
+            this.lbl_Mensagem = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -54,6 +55,7 @@
             this.tbx_Login.Name = "tbx_Login";
             this.tbx_Login.Size = new System.Drawing.Size(155, 20);
             this.tbx_Login.TabIndex = 2;
+            this.tbx_Login.TextChanged += new System.EventHandler(this.tbx_Login_TextChanged);
             // 
             // label1
             // 
@@ -67,6 +69,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lbl_Mensagem);
             this.groupBox1.Controls.Add(this.btn_Criar_Usuario);
             this.groupBox1.Controls.Add(this.tbx_Senha);
             this.groupBox1.Controls.Add(this.label2);
@@ -79,6 +82,16 @@
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Login Inicial";
+            // 
+            // btn_Criar_Usuario
+            // 
+            this.btn_Criar_Usuario.Location = new System.Drawing.Point(51, 88);
+            this.btn_Criar_Usuario.Name = "btn_Criar_Usuario";
+            this.btn_Criar_Usuario.Size = new System.Drawing.Size(84, 23);
+            this.btn_Criar_Usuario.TabIndex = 5;
+            this.btn_Criar_Usuario.Text = "Criar usuário";
+            this.btn_Criar_Usuario.UseVisualStyleBackColor = true;
+            this.btn_Criar_Usuario.Click += new System.EventHandler(this.btn_Criar_Usuario_Click);
             // 
             // tbx_Senha
             // 
@@ -96,15 +109,14 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Senha:";
             // 
-            // btn_Criar_Usuario
+            // lbl_Mensagem
             // 
-            this.btn_Criar_Usuario.Location = new System.Drawing.Point(51, 88);
-            this.btn_Criar_Usuario.Name = "btn_Criar_Usuario";
-            this.btn_Criar_Usuario.Size = new System.Drawing.Size(84, 23);
-            this.btn_Criar_Usuario.TabIndex = 5;
-            this.btn_Criar_Usuario.Text = "Criar usuário";
-            this.btn_Criar_Usuario.UseVisualStyleBackColor = true;
-            this.btn_Criar_Usuario.Click += new System.EventHandler(this.btn_Criar_Usuario_Click);
+            this.lbl_Mensagem.AutoSize = true;
+            this.lbl_Mensagem.ForeColor = System.Drawing.Color.Red;
+            this.lbl_Mensagem.Location = new System.Drawing.Point(100, 0);
+            this.lbl_Mensagem.Name = "lbl_Mensagem";
+            this.lbl_Mensagem.Size = new System.Drawing.Size(0, 13);
+            this.lbl_Mensagem.TabIndex = 6;
             // 
             // frm_Login
             // 
@@ -125,13 +137,14 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btn_Login;
         private System.Windows.Forms.TextBox tbx_Login;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox tbx_Senha;
-        private System.Windows.Forms.Button btn_Criar_Usuario;
+        public System.Windows.Forms.Button btn_Login;
+        public System.Windows.Forms.Button btn_Criar_Usuario;
+        private System.Windows.Forms.Label lbl_Mensagem;
     }
 }
 

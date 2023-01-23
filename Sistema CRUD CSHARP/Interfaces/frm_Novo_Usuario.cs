@@ -20,6 +20,7 @@ namespace Sistema_CRUD_CSHARP.Interfaces
         public frm_Novo_Usuario()
         {
             InitializeComponent();
+
             tbx_Nova_Senha.PasswordChar = '*';
         }
 
@@ -30,6 +31,8 @@ namespace Sistema_CRUD_CSHARP.Interfaces
 
         private void btn_Criar_Usuario_Click(object sender, EventArgs e)
         {
+            Verifica_Usuario_duplicado();
+
             try
             {
                 conexao = new MySqlConnection("Server = localhost; Database = cliente; Uid = wilson; Pwd = @W1ls0nyur1;");
@@ -56,6 +59,39 @@ namespace Sistema_CRUD_CSHARP.Interfaces
                 comando = null;
             }
             this.Hide();
+        }
+
+        private void Verifica_Usuario_duplicado() //método para verificar se existe usuário duplicado no banco
+        {
+            MySqlConnection conexao;
+            MySqlCommand comando;
+            string strSQL;
+
+            conexao = new MySqlConnection ("Server = localhost; Database = cliente; Uid = wilson; Pwd = @W1ls0nyur1;");
+
+            strSQL = ("SELECT COUNT(*) FROM dados_login WHERE login = @criarusuario");
+
+            comando = new MySqlCommand(strSQL, conexao);
+
+            comando.Parameters.AddWithValue("@criarusuario", btn_Criar_Usuario.Text);
+
+            conexao.Open();
+
+            int count = Convert.ToInt32(comando.ExecuteScalar());
+
+            // MessageBox.Show(count.Text);
+                
+                if (count >= 1)
+                {
+                    MessageBox.Show("Usuário já existe na base de dados.");
+                    conexao.Close();
+                    Application.Exit(); 
+                }
+                else
+                {
+                MessageBox.Show("Usuário será criado");
+                }
+            
         }
     }
 }
