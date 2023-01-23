@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ctl_Login.cs" />
     <Compile Include="Interfaces\frm_Novo_Usuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +68,7 @@
     <Compile Include="Interfaces\frm_Login.Designer.cs">
       <DependentUpon>frm_Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Models\Dados_Login.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Interfaces\frm_Novo_Usuario.resx">
